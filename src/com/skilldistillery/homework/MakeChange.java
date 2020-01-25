@@ -7,7 +7,8 @@ public class MakeChange {
 	public static void main(String[] args) {
 		Scanner kb = new Scanner(System.in);
 		
-		System.out.println("Enter the price of the item: $");
+		System.out.print("Enter the price of the item: $");
+		double price = kb.nextDouble();
 		
 		
 		kb.close();
