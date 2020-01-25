@@ -24,14 +24,14 @@ public class MakeChange {
 		System.out.print("Enter the amount paid: $");
 		tenderedAmt = kb.nextDouble();
 
-		if (tenderedAmt < itemPrice) {
-			System.out.println("Error insufficent amount paid.");
+		if (tenderedAmt < itemPrice || itemPrice <= 0 || tenderedAmt <= 0) {
+			System.out.println("Error invalid amount entered.");
 		} else if (tenderedAmt == itemPrice) {
 			System.out.println("No change due");
 		} else if (tenderedAmt > itemPrice) {
 			differenceAmt = tenderedAmt - itemPrice;
-			differenceAmt = Math.round(differenceAmt * 100.0)/100.0;
-			System.out.println("Change due: $"+differenceAmt+"\n");
+			differenceAmt = Math.round(differenceAmt * 100.0) / 100.0;
+			System.out.println("Change due: $" + differenceAmt + "\n");
 			while (differenceAmt >= 0.009) {
 //				System.out.println("TOP Difference: $" + differenceAmt);
 				if (differenceAmt >= 20) {
@@ -69,7 +69,7 @@ public class MakeChange {
 				}
 //				System.out.println("Bottom Difference: " + differenceAmt);
 			}
-			printAmount(numTwentys,numTens,numFives,numOnes,numQuarters,numDimes,numNickels,numPennies);
+			printAmount(numTwentys, numTens, numFives, numOnes, numQuarters, numDimes, numNickels, numPennies);
 //			System.out.println("#20: " + numTwentys + " #10: " + numTens + " #5: " + numFives + " #1: " + numOnes);
 //			System.out.println("#.25: " + numQuarters + " #.10: " + numDimes + " #.5: " + numNickels + " #.01: " + numPennies);
 		}
@@ -77,31 +77,32 @@ public class MakeChange {
 		kb.close();
 
 	}
-	
-	public static void printAmount(int numTwentys, int numTens, int numFives, int numOnes, int numQuarters, int numDimes, int numNickels, int numPennies) {
+
+	public static void printAmount(int numTwentys, int numTens, int numFives, int numOnes, int numQuarters,
+			int numDimes, int numNickels, int numPennies) {
 		if (numTwentys > 0) {
-			System.out.println(numTwentys+" twenty dollar bill");
+			System.out.println(numTwentys + " twenty dollar bill");
 		}
 		if (numTens > 0) {
-			System.out.println(numTens+" ten dollar bill");
+			System.out.println(numTens + " ten dollar bill");
 		}
 		if (numFives > 0) {
-			System.out.println(numFives+" five dollar bill");
+			System.out.println(numFives + " five dollar bill");
 		}
 		if (numOnes > 0) {
-			System.out.println(numOnes+" one dollar bill");
+			System.out.println(numOnes + " one dollar bill");
 		}
 		if (numQuarters > 0) {
-			System.out.println(numQuarters+" quarter(s)");
+			System.out.println(numQuarters + " quarter(s)");
 		}
 		if (numDimes > 0) {
-			System.out.println(numDimes+" dime(s)");
+			System.out.println(numDimes + " dime(s)");
 		}
 		if (numNickels > 0) {
-			System.out.println(numNickels+" nickel(s)");
+			System.out.println(numNickels + " nickel(s)");
 		}
 		if (numPennies > 0) {
-			System.out.println(numPennies+" penny(s)");
+			System.out.println(numPennies + " penny(s)");
 		}
 	}
 
